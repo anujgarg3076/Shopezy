@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from '@material-ui/core'
+import ProductButton from './product-button'
 
 type productAttributes = {
   id: number
@@ -33,6 +34,7 @@ const Product = ({ item }: fullProductType) => {
         <h3>${item.price}</h3>
       </div>
       <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
+      <ProductButton item={item} />
     </div>
   )
 }
