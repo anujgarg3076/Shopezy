@@ -22,8 +22,8 @@ export default function ProductButton({ item }: fullProductType) {
 
   return (
     <div style={{ display: 'block', padding: 30 }}>
+      <ActualCart item={item} itemCount={itemCount} />
       <div>
-        <ActualCart item={item} itemCount={itemCount} />
         <Badge color="secondary" badgeContent={itemCount}></Badge>
         <ButtonGroup>
           <Button

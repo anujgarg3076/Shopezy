@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Button } from '@material-ui/core'
+import React from 'react'
 import ProductButton from './product-button'
 
 type productAttributes = {
@@ -16,15 +15,6 @@ type fullProductType = {
 }
 
 const Product = ({ item }: fullProductType) => {
-  const [cartItems, setCartItems] = useState<productAttributes[]>([])
-
-  const handleAddToCart = (selectedItem: productAttributes) => {
-    console.log('Adding to cart:', selectedItem)
-    console.log('cart items before', cartItems)
-    setCartItems((prevCartItems) => [...prevCartItems, selectedItem])
-    console.log('cart items after', cartItems)
-  }
-
   return (
     <div style={styles.productContainer as React.CSSProperties}>
       <img src={item.image} alt={item.title} style={styles.productImage} />
@@ -32,9 +22,8 @@ const Product = ({ item }: fullProductType) => {
         <h3>{item.title}</h3>
         <p>{item.description}</p>
         <h3>${item.price}</h3>
+        <ProductButton item={item} />
       </div>
-      <Button onClick={() => handleAddToCart(item)}>Add to cart</Button>
-      <ProductButton item={item} />
     </div>
   )
 }
